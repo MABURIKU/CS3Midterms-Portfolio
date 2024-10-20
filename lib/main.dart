@@ -66,7 +66,7 @@ class HomePage extends StatelessWidget {
                                           width:
                                               MediaQuery.of(context).size.width,
                                           child: Image.asset(
-                                            'assets/MAVERICK - Main.png',
+                                            'assets/MAVERICK - LOGO Main.png',
                                             fit: BoxFit.contain,
                                           ),
                                         )
@@ -96,7 +96,7 @@ class HomePage extends StatelessWidget {
                                                       .height -
                                                   50),
                                           child: Image.asset(
-                                            'assets/MAVERICK - Fade (Apply Multiply).png',
+                                            'assets/MAVERICK - Portrait.png',
                                             fit: BoxFit.contain,
                                           ),
                                         )
@@ -231,7 +231,7 @@ class HomePage extends StatelessWidget {
                             );
                           },
                           child: Image.asset(
-                            'assets/MAVERICK - Short [Secondary 60].png',
+                            'assets/MAVERICK - LOGO Cut.png',
                           ),
                         ),
                       ),
