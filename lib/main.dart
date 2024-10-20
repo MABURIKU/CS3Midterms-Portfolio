@@ -200,7 +200,15 @@ class HomePage extends StatelessWidget {
                                           height: 40,
                                           width: 120,
                                           child: TextButton(
-                                            onPressed: () {},
+                                            onPressed: () {
+                                              _scrollController.animateTo(
+                                                _scrollController
+                                                    .position.maxScrollExtent,
+                                                duration:
+                                                    Duration(milliseconds: 800),
+                                                curve: Curves.easeInOut,
+                                              );
+                                            },
                                             style: TextButton.styleFrom(
                                               foregroundColor:
                                                   Color(0xFF353535),
@@ -218,7 +226,7 @@ class HomePage extends StatelessWidget {
                                           ),
                                         ),
                                         SizedBox(
-                                          height: 250,
+                                          height: 200,
                                         ),
                                         RichText(
                                           text: TextSpan(
@@ -230,7 +238,7 @@ class HomePage extends StatelessWidget {
                                                     text: 'Projects',
                                                     style: TextStyle(
                                                         fontFamily:
-                                                            'Wix Regular')),
+                                                            'Wix Bold')),
                                               ]),
                                           textAlign: TextAlign.center,
                                         ),
@@ -284,14 +292,108 @@ class HomePage extends StatelessWidget {
                                                       'assets/POSTER - 5.png'),
                                             ],
                                           ),
+                                        ),
+                                        SizedBox(
+                                          height: 200,
+                                        ),
+                                        RichText(
+                                          text: TextSpan(
+                                              style: TextStyle(
+                                                  color: Color(0xFFDFDFDF),
+                                                  fontSize: 40),
+                                              children: <TextSpan>[
+                                                TextSpan(
+                                                    text: 'Contact',
+                                                    style: TextStyle(
+                                                        fontFamily:
+                                                            'Wix Bold')),
+                                              ]),
+                                          textAlign: TextAlign.center,
+                                        ),
+                                        SizedBox(
+                                          height: 15,
+                                        ),
+                                        Container(
+                                          constraints:
+                                              BoxConstraints(maxWidth: 800),
+                                          child: RichText(
+                                            text: TextSpan(
+                                                style: TextStyle(
+                                                    color: Color(0xFFDFDFDF)
+                                                        .withOpacity(0.6),
+                                                    fontSize: 16),
+                                                children: <TextSpan>[
+                                                  TextSpan(
+                                                      text:
+                                                          "Helo, If you’re curious about my work or have a project brewing in your mind, let’s talk! I’m always excited to connect and collaborate. Don’t hesitate to reach out!",
+                                                      style: TextStyle(
+                                                          fontFamily:
+                                                              'Wix Regular')),
+                                                ]),
+                                            textAlign: TextAlign.center,
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          height: 50,
+                                        ),
+                                        Text(
+                                          "Address",
+                                          style: TextStyle(
+                                              fontFamily: 'Wix Regular',
+                                              fontSize: 18,
+                                              color: Color(0xFFDFDFDF)),
+                                        ),
+                                        SizedBox(
+                                          height: 5,
+                                        ),
+                                        Text(
+                                          "404 Ain't Telling You St., E-mail Me Instead Subd.",
+                                          style: TextStyle(
+                                              fontFamily: 'Wix Regular',
+                                              fontSize: 16,
+                                              color: Color(0xFFDFDFDF)
+                                                  .withOpacity(0.6)),
+                                          textAlign: TextAlign.center,
+                                        ),
+                                        SizedBox(
+                                          height: 20,
+                                        ),
+                                        Text(
+                                          "E-mail",
+                                          style: TextStyle(
+                                              fontFamily: 'Wix Regular',
+                                              fontSize: 18,
+                                              color: Color(0xFFDFDFDF)),
+                                        ),
+                                        SizedBox(
+                                          height: 5,
+                                        ),
+                                        Text(
+                                          "mjrpigao@addu.edu.ph",
+                                          style: TextStyle(
+                                              fontFamily: 'Wix Regular',
+                                              fontSize: 16,
+                                              color: Color(0xFFDFDFDF)
+                                                  .withOpacity(0.6)),
+                                          textAlign: TextAlign.center,
+                                        ),
+                                        SizedBox(
+                                          height: 250,
+                                        ),
+                                        Text(
+                                          "All rights reserved © 2024 MAVERICK",
+                                          style: TextStyle(
+                                              fontFamily: 'Wix Regular',
+                                              fontSize: 14,
+                                              color: Color(0xFFDFDFDF)
+                                                  .withOpacity(0.6)),
+                                          textAlign: TextAlign.center,
+                                        ),
+                                        SizedBox(
+                                          height: 100,
                                         )
                                       ],
                                     ),
-                                  ),
-                                  Container(
-                                    color: Colors.yellow[50],
-                                    width: MediaQuery.of(context).size.width,
-                                    height: 1000,
                                   )
                                 ],
                               ),
@@ -344,7 +446,7 @@ class HomePage extends StatelessWidget {
                         InkWell(
                           onTap: () {
                             _scrollController.animateTo(
-                              MediaQuery.of(context).size.height + 500,
+                              MediaQuery.of(context).size.height + 450,
                               duration: Duration(milliseconds: 800),
                               curve: Curves.easeInOut,
                             );
@@ -359,12 +461,21 @@ class HomePage extends StatelessWidget {
                         SizedBox(
                           width: 25,
                         ),
-                        Text(
-                          "CONTACT",
-                          style: TextStyle(
-                              fontFamily: 'Wix Bold',
-                              color: Color(0xFFDFDFDF).withOpacity(0.6)),
-                        )
+                        InkWell(
+                          onTap: () {
+                            _scrollController.animateTo(
+                              _scrollController.position.maxScrollExtent,
+                              duration: Duration(milliseconds: 800),
+                              curve: Curves.easeInOut,
+                            );
+                          },
+                          child: Text(
+                            "CONTACT",
+                            style: TextStyle(
+                                fontFamily: 'Wix Bold',
+                                color: Color(0xFFDFDFDF).withOpacity(0.6)),
+                          ),
+                        ),
                       ],
                     )
                   ],
