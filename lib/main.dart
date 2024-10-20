@@ -15,6 +15,41 @@ class MainApp extends StatelessWidget {
   }
 }
 
+class HoverImage extends StatefulWidget {
+  final String imagePath;
+
+  const HoverImage({Key? key, required this.imagePath}) : super(key: key);
+
+  @override
+  _HoverImageState createState() => _HoverImageState();
+}
+
+class _HoverImageState extends State<HoverImage> {
+  bool _isHovered = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return MouseRegion(
+      onEnter: (_) => setState(() {
+        _isHovered = true;
+      }),
+      onExit: (_) => setState(() {
+        _isHovered = false;
+      }),
+      child: ColorFiltered(
+        colorFilter: _isHovered
+            ? ColorFilter.mode(Colors.transparent, BlendMode.color)
+            : ColorFilter.mode(Colors.grey, BlendMode.color),
+        child: Image.asset(
+          widget.imagePath,
+          fit: BoxFit.contain,
+          width: 300,
+        ),
+      ),
+    );
+  }
+}
+
 class HomePage extends StatelessWidget {
   final ScrollController _scrollController = ScrollController();
 
@@ -182,6 +217,74 @@ class HomePage extends StatelessWidget {
                                                     fontSize: 16)),
                                           ),
                                         ),
+                                        SizedBox(
+                                          height: 250,
+                                        ),
+                                        RichText(
+                                          text: TextSpan(
+                                              style: TextStyle(
+                                                  color: Color(0xFFDFDFDF),
+                                                  fontSize: 40),
+                                              children: <TextSpan>[
+                                                TextSpan(
+                                                    text: 'Projects',
+                                                    style: TextStyle(
+                                                        fontFamily:
+                                                            'Wix Regular')),
+                                              ]),
+                                          textAlign: TextAlign.center,
+                                        ),
+                                        SizedBox(
+                                          height: 15,
+                                        ),
+                                        Container(
+                                          constraints:
+                                              BoxConstraints(maxWidth: 800),
+                                          child: RichText(
+                                            text: TextSpan(
+                                                style: TextStyle(
+                                                    color: Color(0xFFDFDFDF)
+                                                        .withOpacity(0.6),
+                                                    fontSize: 16),
+                                                children: <TextSpan>[
+                                                  TextSpan(
+                                                      text:
+                                                          "Here's a collection of my artistic creations, each reflecting my vision and passion for creativity. From vibrant illustrations to striking designs, this gallery showcases the diverse styles that inspire me.",
+                                                      style: TextStyle(
+                                                          fontFamily:
+                                                              'Wix Regular')),
+                                                ]),
+                                            textAlign: TextAlign.center,
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          height: 30,
+                                        ),
+                                        Container(
+                                          constraints:
+                                              BoxConstraints(maxWidth: 1200),
+                                          child: Wrap(
+                                            spacing: 40,
+                                            runSpacing: 40,
+                                            children: [
+                                              HoverImage(
+                                                  imagePath:
+                                                      'assets/POSTER - 1.png'),
+                                              HoverImage(
+                                                  imagePath:
+                                                      'assets/POSTER - 2.png'),
+                                              HoverImage(
+                                                  imagePath:
+                                                      'assets/POSTER - 3.png'),
+                                              HoverImage(
+                                                  imagePath:
+                                                      'assets/POSTER - 4.png'),
+                                              HoverImage(
+                                                  imagePath:
+                                                      'assets/POSTER - 5.png'),
+                                            ],
+                                          ),
+                                        )
                                       ],
                                     ),
                                   ),
@@ -241,7 +344,7 @@ class HomePage extends StatelessWidget {
                         InkWell(
                           onTap: () {
                             _scrollController.animateTo(
-                              0,
+                              MediaQuery.of(context).size.height + 500,
                               duration: Duration(milliseconds: 800),
                               curve: Curves.easeInOut,
                             );
