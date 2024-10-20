@@ -202,8 +202,9 @@ class HomePage extends StatelessWidget {
                                           child: TextButton(
                                             onPressed: () {
                                               _scrollController.animateTo(
-                                                _scrollController
-                                                    .position.maxScrollExtent,
+                                                _scrollController.position
+                                                        .maxScrollExtent -
+                                                    100,
                                                 duration:
                                                     Duration(milliseconds: 800),
                                                 curve: Curves.easeInOut,
@@ -464,7 +465,7 @@ class HomePage extends StatelessWidget {
                         InkWell(
                           onTap: () {
                             _scrollController.animateTo(
-                              _scrollController.position.maxScrollExtent,
+                              _scrollController.position.maxScrollExtent - 100,
                               duration: Duration(milliseconds: 800),
                               curve: Curves.easeInOut,
                             );
